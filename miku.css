@@ -1,0 +1,209 @@
+ /* --- 基础样式 --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Microsoft YaHei", "Helvetica Neue", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f0faff; /* 极淡的蓝色背景 */
+        }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- Miku 主题色变量 --- */
+        :root {
+            --miku-green: #39C5BB; /* Miku 标志性葱绿 */
+            --miku-dark: #2a9d96;
+            --text-pink: #ff66b2;  /* 点缀用的粉色 */
+        }
+
+        .container {
+            width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* --- 1. 头部 --- */
+        header {
+            background-color: var(--miku-green);
+            color: #fff;
+            font-size: 14px;
+            box-shadow: 0 2px 10px rgba(57, 197, 187, 0.4);
+        }
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+        }
+        .header-top i { margin-right: 5px; }
+
+        /* --- 2. 导航 --- */
+        nav {
+            background-color: #fff;
+            border-bottom: 3px solid var(--miku-green);
+        }
+        .nav-list {
+            display: flex;
+            height: 70px;
+            align-items: center;
+            justify-content: center; /* 导航居中 */
+        }
+        .nav-list li { margin: 0 20px; }
+        .nav-list a {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 20px;
+        }
+        .nav-list a:hover {
+            background-color: var(--miku-green);
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(57, 197, 187, 0.3);
+        }
+
+        /* --- 3. 焦点图 (Banner) --- */
+        .banner {
+            position: relative;
+            height: 500px;
+            background-color: #e0f7fa;
+            overflow: hidden;
+        }
+        .banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* 给图片加一点微弱的滤镜，让它看起来更有二次元感 */
+            filter: brightness(1.05); 
+        }
+        .banner-content {
+            position: absolute;
+            bottom: 80px; /* 文字放在左下方或中间 */
+            left: 10%;
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+            z-index: 10;
+        }
+        .banner-content h1 {
+            font-size: 60px;
+            margin-bottom: 10px;
+            font-style: italic; /* 斜体更有速度感 */
+        }
+        .banner-content p {
+            font-size: 24px;
+            letter-spacing: 2px;
+        }
+
+        /* --- 4. 内容区 --- */
+        main { padding: 40px 0; }
+
+        /* 快捷入口 (粉丝站功能) */
+        .services {
+            display: flex;
+            gap: 20px; 
+            justify-content: center;
+            background: linear-gradient(135deg, var(--miku-green), var(--miku-dark));
+            padding: 40px 20px;
+            margin-bottom: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(57, 197, 187, 0.2);
+            color: #fff;
+            flex-wrap: wrap;
+}
+        .service-link {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex: 1;
+            min-width: 150px;
+            max-width: 250px;
+}
+        .service-item {
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+            width: 100%;
+}
+        .service-item:hover { transform: translateY(-10px); }
+        .service-item i {
+            font-size: 45px;
+            margin-bottom: 15px;
+            color: #fff;
+}
+        .service-item h3 { font-size: 22px; margin-bottom: 5px; }
+        .service-item p { font-size: 14px; opacity: 0.8; }
+
+        /* 最新资讯/作品 */
+        .news-section { margin-top: 40px; }
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: var(--miku-green);
+            position: relative;
+            font-weight: bold;
+        }
+        /* 标题下划线改成 Miku 葱的形状或渐变色 */
+        .section-title::after {
+            content: '♪'; /* 加个音符装饰 */
+            display: block;
+            font-size: 20px;
+            color: var(--text-pink);
+            margin-top: 5px;
+        }
+
+        .news-list { display: flex; gap: 30px; }
+        .news-item {
+            flex: 1;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border: 1px solid #eee;
+        }
+        .news-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(57, 197, 187, 0.2);
+            border-color: var(--miku-green);
+        }
+        .news-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        .news-content { padding: 25px; }
+        .news-content h4 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .news-content h4 a:hover { color: var(--miku-green); }
+        .news-content p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .news-meta {
+            font-size: 12px;
+            color: #999;
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px dashed #eee;
+            padding-top: 15px;
+        }
+
+        /* --- 5. 底部 --- */
+        footer {
+            background-color: #333;
+            color: #ccc;
+            text-align: center;
+            padding: 40px 0;
+            font-size: 14px;
+            margin-top: 50px;
+        }
+        footer p { margin-bottom: 10px; }
+        footer span { color: var(--miku-green); }
