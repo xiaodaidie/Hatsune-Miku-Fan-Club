@@ -1,0 +1,190 @@
+ /* --- 基础设置与变量 --- */
+        :root {
+            --miku-green: #39C5BB;
+            --miku-dark: #2a9d96;
+            --miku-pink: #ff66b2;
+            --text-color: #333;
+            --bg-gradient: linear-gradient(135deg, #e0f7fa 0%, #ffffff 100%);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-color);
+            line-height: 1.6;
+            /* 背景加一点科技感的网格纹理 */
+            background-image: 
+                linear-gradient(rgba(57, 197, 187, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(57, 197, 187, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .container {
+            width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* --- 返回按钮 --- */
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--miku-dark);
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .back-btn:hover { color: var(--miku-pink); }
+
+        /* --- 1. 核心展示区 (Hero Section) --- */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.6); /* 玻璃拟态背景 */
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 60px;
+            box-shadow: 0 10px 30px rgba(57, 197, 187, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            margin-bottom: 50px;
+        }
+        .hero-text { flex: 1; padding-right: 40px; }
+        .hero-text h1 {
+            font-size: 48px;
+            color: var(--miku-green);
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        .hero-text .subtitle {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        /* 基础信息标签 */
+        .info-tags { display: flex; gap: 15px; flex-wrap: wrap; }
+        .tag {
+            background: #fff;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 14px;
+            color: var(--miku-dark);
+            border: 1px solid var(--miku-green);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .tag i { color: var(--miku-pink); margin-right: 5px; }
+
+        /* Miku 立绘区域 */
+        .hero-image {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+        .hero-image img {
+            max-height: 500px; /* 根据实际立绘调整 */
+            filter: drop-shadow(0 10px 20px rgba(57, 197, 187, 0.4));
+            transition: transform 0.5s;
+        }
+        .hero-image:hover img { transform: scale(1.02) translateY(-5px); }
+
+        /* --- 2. 通用板块样式 --- */
+        .section-box {
+            background: #fff;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        .section-title {
+            font-size: 28px;
+            color: var(--miku-green);
+            margin-bottom: 30px;
+            border-left: 5px solid var(--miku-pink);
+            padding-left: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* --- 3. 起源时间轴 --- */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            border-left: 2px solid #eee;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -36px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            background: var(--miku-green);
+            border-radius: 50%;
+            border: 2px solid #fff;
+            box-shadow: 0 0 0 2px var(--miku-green);
+        }
+        .timeline-year {
+            font-weight: bold;
+            color: var(--miku-pink);
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        /* --- 4. 代表作卡片 --- */
+        .songs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .song-card {
+            background: #f9f9f9;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: 0.3s;
+            border: 1px solid #eee;
+        }
+        .song-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(57, 197, 187, 0.2);
+            border-color: var(--miku-green);
+        }
+        .song-cover {
+            height: 150px;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-size: 40px;
+            overflow: hidden;
+        }
+        .song-cover img {
+            width: 100%;       /* 宽度撑满格子 */
+            height: 100%;      /* 高度撑满格子 */
+            object-fit: cover; /* 核心代码！等比例缩放并裁剪，保证图片不变形且填满 */
+            display: block;    /* 消除图片底部可能出现的微小缝隙 */
+}
+        .song-info { padding: 20px; }
+        .song-info h4 { margin-bottom: 10px; color: #333; }
+        .song-info p { font-size: 13px; color: #666; }
+        .song-tag {
+            display: inline-block;
+            background: var(--miku-green);
+            color: #fff;
+            font-size: 12px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        /* --- 响应式适配 --- */
+        @media (max-width: 768px) {
+            .hero-section { flex-direction: column-reverse; text-align: center; padding: 30px; }
+            .hero-text { padding-right: 0; margin-top: 30px; }
+            .info-tags { justify-content: center; }
+            .songs-grid { grid-template-columns: 1fr; }
+            .hero-image img { max-height: 300px; }
+        }
